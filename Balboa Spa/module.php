@@ -23,14 +23,21 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
             $this->RegisterVariableString('Notification', $this->Translate('Notification'), '', 2);
             $this->RegisterVariableBoolean('CirculationPump', $this->Translate('Circulation Pump'), '~Switch', 3);
             $this->EnableAction('CirculationPump');
-            $this->RegisterVariableFloat('CurrentTemperature', $this->Translate('Current Temperature'), '~Temperature', 4);
+
+            if (!IPS_VariableProfileExists('BS.CurrentTemperature')) {
+                $this->RegisterProfileInteger('BS.CurrentTemperature', 'Temperature', '', '', 0, 42, 1);
+            }
+
+            $this->RegisterVariableFloat('CurrentTemperature', $this->Translate('Current Temperature'), 'BS.CurrentTemperature', 4);
             $this->RegisterVariableBoolean('Heating', $this->Translate('Heating'), '~Switch', 5);
             $this->EnableAction('Heating');
-            $this->RegisterProfileStringEx('BS.HeatingMode', 'Menu', '', '', [
-                ['ready', $this->Translate('Ready'), '', 0x00ff00],
-                ['rest', $this->Translate('Rest'), '', 0xff8000],
-                ['ready_in_rest', $this->Translate('Ready in rest'), '', 0xff0000],
-            ]);
+            if (!IPS_VariableProfileExists('BS.HeatingMode')) {
+                $this->RegisterProfileStringEx('BS.HeatingMode', 'Menu', '', '', [
+                    ['ready', $this->Translate('Ready'), '', 0x00ff00],
+                    ['rest', $this->Translate('Rest'), '', 0xff8000],
+                    ['ready_in_rest', $this->Translate('Ready in rest'), '', 0xff0000],
+                ]);
+            }
             $this->RegisterVariableString('HeatingMode', $this->Translate('Heating Mode'), 'BS.HeatingMode', 6);
             $this->EnableAction('HeatingMode');
             $this->RegisterVariableBoolean('Hold', $this->Translate('Hold'), '~Switch', 7);
@@ -43,7 +50,10 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
             $this->EnableAction('Pump1');
             $this->RegisterVariableBoolean('Pump2', $this->Translate('Jet Pump 2'), '~Switch', 9);
             $this->EnableAction('Pump2');
-            $this->RegisterVariableFloat('TargetTemperature', $this->Translate('Target Temperature'), '~Temperature', 10);
+            if (!IPS_VariableProfileExists('BS.TargetTemperature')) {
+                $this->RegisterProfileInteger('BS.TargetTemperature', 'Temperature', '', '', 10, 40, 1);
+            }
+            $this->RegisterVariableFloat('TargetTemperature', $this->Translate('Target Temperature'), 'BS.TargetTemperature', 10);
             $this->EnableAction('TargetTemperature');
             if (!IPS_VariableProfileExists('BS.TemperatureRange')) {
                 $this->RegisterProfileStringEx('BS.TemperatureRange', 'Menu', '', '', [
