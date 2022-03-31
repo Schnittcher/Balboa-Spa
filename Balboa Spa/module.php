@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR__ . '/../libs/vendor/SymconModulHelper/VariableProfileHelper.php') . '}');
+eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR__ . '/../libs/vendor/SymconModulHelper/DebugHelper.php') . '}');
 
     class BalboaSpa extends IPSModule
     {
