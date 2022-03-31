@@ -103,6 +103,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
         {
             switch ($Ident) {
                 case 'Light1':
+                    $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('spa/light1/set', strval($Value));
                     break;
                 case 'CirculationPump':
