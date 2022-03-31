@@ -1,67 +1,28 @@
 # Balboa Spa
-Beschreibung des Moduls.
+Mit diesem Modul ist es möglich die Balboa Spa Steuerung über IP-Symcon zu benutzen.
 
-### Inhaltsverzeichnis
+   ## Inhaltverzeichnis
+   1. [Konfiguration](#1-konfiguration)
+   2. [Funktionen](#2-funktionen)
 
-1. [Funktionsumfang](#1-funktionsumfang)
-2. [Voraussetzungen](#2-voraussetzungen)
-3. [Software-Installation](#3-software-installation)
-4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
-5. [Statusvariablen und Profile](#5-statusvariablen-und-profile)
-6. [WebFront](#6-webfront)
-7. [PHP-Befehlsreferenz](#7-php-befehlsreferenz)
+   ## 1. Konfiguration
+   
+   Feld | Beschreibung
+   ------------ | ----------------
+   MQTT Base Topic | Base Topic (Standard: homie)
+   MQTT Topic | MQTT Topic (Standard: bwa)
+   
+   ## 2. Funktionen
 
-### 1. Funktionsumfang
+   ```php
+   RequestAction($VariablenID, $Value);
+   ```
+   Mit dieser Funktion können alle Aktionen einer Variable ausgelöst werden.
 
-*
-
-### 2. Voraussetzungen
-
-- IP-Symcon ab Version 6.0
-
-### 3. Software-Installation
-
-* Über den Module Store das 'Balboa Spa'-Modul installieren.
-* Alternativ über das Module Control folgende URL hinzufügen
-
-### 4. Einrichten der Instanzen in IP-Symcon
-
- Unter 'Instanz hinzufügen' kann das 'Balboa Spa'-Modul mithilfe des Schnellfilters gefunden werden.  
-	- Weitere Informationen zum Hinzufügen von Instanzen in der [Dokumentation der Instanzen](https://www.symcon.de/service/dokumentation/konzepte/instanzen/#Instanz_hinzufügen)
-
-__Konfigurationsseite__:
-
-Name     | Beschreibung
--------- | ------------------
-         |
-         |
-
-### 5. Statusvariablen und Profile
-
-Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzelner kann zu Fehlfunktionen führen.
-
-#### Statusvariablen
-
-Name   | Typ     | Beschreibung
------- | ------- | ------------
-       |         |
-       |         |
-
-#### Profile
-
-Name   | Typ
------- | -------
-       |
-       |
-
-### 6. WebFront
-
-Die Funktionalität, die das Modul im WebFront bietet.
-
-### 7. PHP-Befehlsreferenz
-
-`boolean BS_BeispielFunktion(integer $InstanzID);`
-Erklärung der Funktion.
-
-Beispiel:
-`BS_BeispielFunktion(12345);`
+   **Beispiel:**
+   
+   Variable ID Licht 1: 12345
+   ```php
+   RequestAction(12345, true); //Licht einschalten
+   RequestAction(12345, false); //Licht ausschalten
+   ```
