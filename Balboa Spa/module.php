@@ -107,27 +107,33 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $this->SendPayload('spa/light1/set', strval($Value));
                     break;
                 case 'CirculationPump':
+                    $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('spa/cirulation-pump/set', strval($Value));
                     break;
                 case 'Heating':
+                    $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('spa/heating/set', strval($Value));
                     break;
                 case 'HeatingMode':
                     $this->SendPayload('spa/heating-mode/set', strval($Value));
                     break;
                 case 'Hold':
+                    $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('spa/hold/set', strval($Value));
                     break;
                 case 'Pump1':
+                    $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('spa/pump1/set', strval($Value));
                     break;
                 case 'Pump2':
+                    $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('spa/pump2/set', strval($Value));
                     break;
                 case 'TargetTemperature':
                     $this->SendPayload('spa/target-temperature/set', strval($Value));
                     break;
                 case 'FilterCycle1Enabled':
+                    $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('filter-cycle1/enabled/set', strval($Value));
                     break;
                 case 'FilterCycle1StartHour':
@@ -140,6 +146,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $this->SendPayload('filter-cycle1/duration/set', strval($Value));
                     break;
                 case 'FilterCycle2Enabled':
+                    $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('filter-cycle2/enabled/set', strval($Value));
                     break;
                 case 'FilterCycle2StartHour':
