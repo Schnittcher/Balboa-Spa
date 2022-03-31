@@ -31,7 +31,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                 ['rest', $this->Translate('Rest'), '', 0xff8000],
                 ['ready_in_rest', $this->Translate('Ready in rest'), '', 0xff0000],
             ]);
-            $this->RegisterVariableBoolean('HeatingMode', $this->Translate('Heating Mode'), 'BS.HeatingMode', 6);
+            $this->RegisterVariableString('HeatingMode', $this->Translate('Heating Mode'), 'BS.HeatingMode', 6);
             $this->EnableAction('HeatingMode');
             $this->RegisterVariableBoolean('Hold', $this->Translate('Hold'), '~Switch', 7);
             $this->EnableAction('Hold');
@@ -51,7 +51,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     ['low', $this->Translate('low'), '', 0xff8000]
                 ]);
             }
-            $this->RegisterVariableBoolean('TemperatureRange', $this->Translate('Temperature Range'), 'BS.TemperatureRange', 11);
+            $this->RegisterVariableString('TemperatureRange', $this->Translate('Temperature Range'), 'BS.TemperatureRange', 11);
             $this->EnableAction('TemperatureRange');
             $this->RegisterVariableBoolean('FilterCycle1Running', $this->Translate('Filter Cycle 1'), '~Switch', 12);
 
