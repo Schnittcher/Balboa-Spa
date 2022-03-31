@@ -14,6 +14,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
         {
             //Never delete this line!
             parent::Create();
+            $this->ConnectParent('{C6D2AEB3-6E1F-4B2E-8E69-3A1A00246850}');
 
             $this->RegisterPropertyString('MQTTBaseTopic', 'homie');
             $this->RegisterPropertyString('MQTTTopic', 'bwa');
