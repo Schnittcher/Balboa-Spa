@@ -22,8 +22,6 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
             $this->EnableAction('Light1');
             $this->RegisterVariableString('Notification', $this->Translate('Notification'), '', 2);
             $this->RegisterVariableBoolean('CirculationPump', $this->Translate('Circulation Pump'), '~Switch', 3);
-            $this->EnableAction('CirculationPump');
-
             if (!IPS_VariableProfileExists('BS.CurrentTemperature')) {
                 $this->RegisterProfileFloat('BS.CurrentTemperature', 'Temperature', '', ' °C', 0, 42, 1, 2);
             }
@@ -116,10 +114,6 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('spa/light1/set', strval($Value));
                     break;
-                case 'CirculationPump':
-                    $Value = $Value ? 'true' : 'false';
-                    $this->SendPayload('spa/circulation-pump/set', strval($Value));
-                    break;
                 case 'Heating':
                     $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('spa/heating/set', strval($Value));
@@ -187,7 +181,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $this->SetValue('Notification', $Payload);
                 }
                 if (fnmatch('*/spa/circulation-pump', $Buffer['Topic'])) {
-                    $this->SetValue('CirulationPump', $Payload);
+                    $this->SetValue('CirculationPump', $Payload);
                 }
                 if (fnmatch('*/spa/current-temperature', $Buffer['Topic'])) {
                     $this->SetValue('CurrentTemperature', $Payload);
