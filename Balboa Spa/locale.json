@@ -1,0 +1,28 @@
+{
+    "translations": {
+        "de": {
+            "Light 1": "Licht 1",
+            "Notification": "Benachrichtigung",
+            "Circulation Pump": "Zirkulationspumpe",
+            "Current Temperature": "Aktuelle Temperatur",
+            "Heating": "Heizung",
+            "Heating Mode": "Heizungsmodus",
+            "Hold": "Sperrmodus",
+            "Priming": "Primingmodus",
+            "Jet Pump1": "Jet Pumpe 1",
+            "Jet Pump2": "Jet Pumpe 2",
+            "Target Temperature": "Soll Temperatur",
+            "Temperature Range": "Temperatur Bereich",
+            "Filter Cycle 1": "Filterzyklus 1",
+            "Filter Cycle 1 Start Hour": "Filterzyklus 1 Stunde",
+            "Filter Cycle 1 Start Minute": "Filterzyklus 1 Minute",
+            "Filter Cycle 1 Start Duration": "Filterzyklus 1 Dauer",
+            "Filter Cycle 2": "Filterzyklus 2",
+            "Filter Cycle 2 Start Hour": "Filterzyklus 2 Stunde",
+            "Filter Cycle 2 Start Minute": "Filterzyklus 2 Minute",
+            "Filter Cycle 2 Start Duration": "Filterzyklus 2 Dauer",
+            "high": "Stark",
+            "low": "Gering"
+        }
+    }
+}
