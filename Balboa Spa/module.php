@@ -159,6 +159,8 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
         public function ReceiveData($JSONString)
         {
             if (!empty($this->ReadPropertyString('MQTTTopic'))) {
+                $Buffer = json_decode($JSONString, true);
+                $this->SendDebug('ReceiveData :: Buffer', $Buffer, 0);
                 $Payload = $Buffer['Payload'];
                 if (fnmatch('*/spa/light1', $Buffer['Topic'])) {
                     $this->SetValue('Light1', $Payload);
