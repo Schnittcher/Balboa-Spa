@@ -118,7 +118,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     break;
                 case 'CirculationPump':
                     $Value = $Value ? 'true' : 'false';
-                    $this->SendPayload('spa/cirulation-pump/set', strval($Value));
+                    $this->SendPayload('spa/circulation-pump/set', strval($Value));
                     break;
                 case 'Heating':
                     $Value = $Value ? 'true' : 'false';
