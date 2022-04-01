@@ -135,7 +135,8 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $this->SendPayload('spa/pump2/set', strval($Value));
                     break;
                 case 'TargetTemperature':
-                    $this->SendPayload('spa/target-temperature/set', strval($Value));
+
+                    $this->SendPayload('spa/target-temperature/set', number_format($Value, 2, '.', ''));
                     break;
                 case 'TemperatureRange':
                     $this->SendPayload('spa/temperature-range/set', strval($Value));
