@@ -167,7 +167,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $this->SendPayload('filter-cycle2/duration/set', strval($Value));
                         break;
                 default:
-                    $this->SendDebug('RequestAction :: Invalid Ident', $Ident);
+                    $this->SendDebug('RequestAction :: Invalid Ident', $Ident, 0);
                     break;
             }
         }
