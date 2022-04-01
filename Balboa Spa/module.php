@@ -50,7 +50,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
             $this->RegisterVariableBoolean('Pump2', $this->Translate('Jet Pump 2'), '~Switch', 9);
             $this->EnableAction('Pump2');
             if (!IPS_VariableProfileExists('BS.TargetTemperature')) {
-                $this->RegisterProfileFloat('BS.TargetTemperature', 'Temperature', '', ' °C', 10, 40, 1, 2);
+                $this->RegisterProfileFloat('BS.TargetTemperature', 'Temperature', '', ' °C', 10, 40, 0.5, 2);
             }
             $this->RegisterVariableFloat('TargetTemperature', $this->Translate('Target Temperature'), 'BS.TargetTemperature', 10);
             $this->EnableAction('TargetTemperature');
