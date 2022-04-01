@@ -137,6 +137,9 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                 case 'TargetTemperature':
                     $this->SendPayload('spa/target-temperature/set', strval($Value));
                     break;
+                case 'TemperatureRange':
+                    $this->SendPayload('spa/temperature-range/set', strval($Value));
+                    break;                   
                 case 'FilterCycle1Enabled':
                     $Value = $Value ? 'true' : 'false';
                     $this->SendPayload('filter-cycle1/enabled/set', strval($Value));
