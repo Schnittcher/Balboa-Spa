@@ -16,6 +16,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
             parent::Create();
             $this->ConnectParent('{C6D2AEB3-6E1F-4B2E-8E69-3A1A00246850}');
 
+            $this->RegisterPropertyBoolean('Active', false);
             $this->RegisterPropertyString('MQTTBaseTopic', 'homie');
             $this->RegisterPropertyString('MQTTTopic', 'bwa');
 
@@ -175,6 +176,9 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
 
         public function ReceiveData($JSONString)
         {
+            if (!$this->ReadPropertyBoolean('Active')) {
+                return;
+            }
             if (!empty($this->ReadPropertyString('MQTTTopic'))) {
                 $Buffer = json_decode($JSONString, true);
                 $this->SendDebug('ReceiveData :: Buffer', $Buffer, 0);
