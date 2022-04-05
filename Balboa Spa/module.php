@@ -188,10 +188,6 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     return;
                 }
 
-                if ($Payload == '') {
-                    return;
-                }
-
                 if (fnmatch('*/spa/light1', $Buffer['Topic'])) {
                     $this->SetValue('Light1', $Payload);
                 }
