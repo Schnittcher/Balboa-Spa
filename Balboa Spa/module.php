@@ -81,8 +81,8 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
             $this->EnableAction('FilterCycle1StartHour');
             $this->RegisterVariableInteger('FilterCycle1StartMinute', $this->Translate('Filter Cycle 1 Start Minute'), 'BS.FilterCycleMinute', 15);
             $this->EnableAction('FilterCycle1StartMinute');
-            $this->RegisterVariableInteger('FilterCycle1StartDuration', $this->Translate('Filter Cycle 1 Start Duration'), 'BS.FilterCycleDuration', 16);
-            $this->EnableAction('FilterCycle1StartDuration');
+            $this->RegisterVariableInteger('FilterCycle1Duration', $this->Translate('Filter Cycle 1 Start Duration'), 'BS.FilterCycleDuration', 16);
+            $this->EnableAction('FilterCycle1Duration');
 
             $this->RegisterVariableBoolean('FilterCycle2Enabled', $this->Translate('Filter Cycle 2'), '~Switch', 17);
             $this->EnableAction('FilterCycle2Enabled');
@@ -91,8 +91,8 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
             $this->EnableAction('FilterCycle2StartHour');
             $this->RegisterVariableInteger('FilterCycle2StartMinute', $this->Translate('Filter Cycle 2 Start Minute'), 'BS.FilterCycleMinute', 20);
             $this->EnableAction('FilterCycle2StartMinute');
-            $this->RegisterVariableInteger('FilterCycle2StartDuration', $this->Translate('Filter Cycle 2 Start Duration'), 'BS.FilterCycleDuration', 21);
-            $this->EnableAction('FilterCycle2StartDuration');
+            $this->RegisterVariableInteger('FilterCycle2Duration', $this->Translate('Filter Cycle 2 Start Duration'), 'BS.FilterCycleDuration', 21);
+            $this->EnableAction('FilterCycle2Duration');
         }
 
         public function Destroy()
