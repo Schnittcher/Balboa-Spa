@@ -183,6 +183,11 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                 $Buffer = json_decode($JSONString, true);
                 $this->SendDebug('ReceiveData :: Buffer', $Buffer, 0);
                 $Payload = $Buffer['Payload'];
+
+                if ($this->isJson($Payload)) {
+                    return;
+                }
+
                 if (fnmatch('*/spa/light1', $Buffer['Topic'])) {
                     $this->SetValue('Light1', $Payload);
                 }
@@ -264,5 +269,11 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
             $this->SendDebug(__FUNCTION__ . ' Topic', $Data['Topic'], 0);
             $this->SendDebug(__FUNCTION__ . ' Payload', $Data['Payload'], 0);
             $this->SendDataToParent($DataJSON);
+        }
+
+        private function isJson($string)
+        {
+            json_decode($string);
+            return json_last_error() === JSON_ERROR_NONE;
         }
     }
