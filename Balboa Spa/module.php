@@ -188,7 +188,9 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $this->SetValue('Light1', $Payload);
                 }
                 if (fnmatch('*/spa/notification', $Buffer['Topic'])) {
-                    $this->SetValue('Notification', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('Notification', $Payload);
+                    }
                 }
                 if (fnmatch('*/spa/circulation-pump', $Buffer['Topic'])) {
                     $this->SetValue('CirculationPump', $Payload);
@@ -197,13 +199,19 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $this->SetValue('CurrentTemperature', $Payload);
                 }
                 if (fnmatch('*/spa/heating', $Buffer['Topic'])) {
-                    $this->SetValue('Heating', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('Heating', $Payload);
+                    }
                 }
                 if (fnmatch('*/spa/heating-mode', $Buffer['Topic'])) {
-                    $this->SetValue('HeatingMode', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('HeatingMode', $Payload);
+                    }
                 }
                 if (fnmatch('*/spa/hold', $Buffer['Topic'])) {
-                    $this->SetValue('Hold', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('Hold', $Payload);
+                    }
                 }
                 if (fnmatch('*/spa/priming', $Buffer['Topic'])) {
                     $this->SetValue('Priming', $Payload);
@@ -215,10 +223,14 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $this->SetValue('Pump2', $Payload);
                 }
                 if (fnmatch('*/spa/target-temperature', $Buffer['Topic'])) {
-                    $this->SetValue('TargetTemperature', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('TargetTemperature', $Payload);
+                    }
                 }
                 if (fnmatch('*/spa/temperature-range', $Buffer['Topic'])) {
-                    $this->SetValue('TemperatureRange', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('TemperatureRange', $Payload);
+                    }
                 }
                 if (fnmatch('*/filter-cycle1/running', $Buffer['Topic'])) {
                     $this->SetValue('FilterCycle1Running', $Payload);
@@ -227,13 +239,19 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $this->SetValue('FilterCycle1Enabled', $Payload);
                 }
                 if (fnmatch('*/filter-cycle1/start-hour', $Buffer['Topic'])) {
-                    $this->SetValue('FilterCycle1StartHour', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('FilterCycle1StartHour', $Payload);
+                    }
                 }
                 if (fnmatch('*/filter-cycle1/start-minute', $Buffer['Topic'])) {
-                    $this->SetValue('FilterCycle1StartMinute', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('FilterCycle1StartMinute', $Payload);
+                    }
                 }
                 if (fnmatch('*/filter-cycle1/duration', $Buffer['Topic'])) {
-                    $this->SetValue('FilterCycle1Duration', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('FilterCycle1Duration', $Payload);
+                    }
                 }
                 if (fnmatch('*/filter-cycle2/running', $Buffer['Topic'])) {
                     $this->SetValue('FilterCycle2Running', $Payload);
@@ -242,13 +260,19 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     $this->SetValue('FilterCycle2Enabled', $Payload);
                 }
                 if (fnmatch('*/filter-cycle2/start-hour', $Buffer['Topic'])) {
-                    $this->SetValue('FilterCycle2StartHour', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('FilterCycle2StartHour', $Payload);
+                    }
                 }
                 if (fnmatch('*/filter-cycle2/start-minute', $Buffer['Topic'])) {
-                    $this->SetValue('FilterCycle2StartMinute', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('FilterCycle2StartMinute', $Payload);
+                    }
                 }
                 if (fnmatch('*/filter-cycle2/duration', $Buffer['Topic'])) {
-                    $this->SetValue('FilterCycle2Duration', $Payload);
+                    if (!empty($Payload)) {
+                        $this->SetValue('FilterCycle2Duration', $Payload);
+                    }
                 }
             }
         }
