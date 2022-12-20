@@ -181,6 +181,11 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
             }
             if (!empty($this->ReadPropertyString('MQTTTopic'))) {
                 $Buffer = json_decode($JSONString, true);
+                //Für MQTT Fix in IPS Version 6.3
+                if (IPS_GetKernelDate() > 1670886000) {
+                    $Buffer['Payload'] = utf8_decode($Buffer['Payload']);
+                }
+                
                 $this->SendDebug('ReceiveData :: Buffer', $Buffer, 0);
                 $Payload = $Buffer['Payload'];
 
