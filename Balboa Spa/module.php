@@ -107,6 +107,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
             parent::ApplyChanges();
 
             $Filter = preg_quote($this->ReadPropertyString('MQTTBaseTopic') . '/' . $this->ReadPropertyString('MQTTTopic'));
+            $this->SetReceiveDataFilter('.*' . $Filter . '.*');            
         }
 
         public function RequestAction($Ident, $Value)
@@ -190,7 +191,9 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                 $Payload = $Buffer['Payload'];
 
                 if (fnmatch('*/spa/light1', $Buffer['Topic'])) {
+                  if (!empty($Payload)) {
                     $this->SetValue('Light1', $Payload);
+                  }
                 }
                 if (fnmatch('*/spa/notification', $Buffer['Topic'])) {
                     if (!empty($Payload)) {
@@ -198,10 +201,14 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     }
                 }
                 if (fnmatch('*/spa/circulation-pump', $Buffer['Topic'])) {
+                  if (!empty($Payload)) {
                     $this->SetValue('CirculationPump', $Payload);
+                  }
                 }
                 if (fnmatch('*/spa/current-temperature', $Buffer['Topic'])) {
+                if (!empty($Payload)) {
                     $this->SetValue('CurrentTemperature', $Payload);
+                }
                 }
                 if (fnmatch('*/spa/heating', $Buffer['Topic'])) {
                     if (!empty($Payload)) {
@@ -219,13 +226,19 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     }
                 }
                 if (fnmatch('*/spa/priming', $Buffer['Topic'])) {
+                if (!empty($Payload)) {
                     $this->SetValue('Priming', $Payload);
+                    }
                 }
                 if (fnmatch('*/spa/pump1', $Buffer['Topic'])) {
-                    $this->SetValue('Pump1', $Payload);
+                    if (!empty($Payload)) {
+                      $this->SetValue('Pump1', $Payload);
+                    }
                 }
                 if (fnmatch('*/spa/pump2', $Buffer['Topic'])) {
-                    $this->SetValue('Pump2', $Payload);
+                  if (!empty($Payload)) {
+                      $this->SetValue('Pump2',$Payload);
+                    }
                 }
                 if (fnmatch('*/spa/target-temperature', $Buffer['Topic'])) {
                     if (!empty($Payload)) {
@@ -238,10 +251,14 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     }
                 }
                 if (fnmatch('*/filter-cycle1/running', $Buffer['Topic'])) {
-                    $this->SetValue('FilterCycle1Running', $Payload);
+                    if (!empty($Payload)) {
+                      $this->SetValue('FilterCycle1Running', $Payload);
+                    }
                 }
                 if (fnmatch('*/filter-cycle1/enabled', $Buffer['Topic'])) {
+                  if (!empty($Payload)) {
                     $this->SetValue('FilterCycle1Enabled', $Payload);
+                  }
                 }
                 if (fnmatch('*/filter-cycle1/start-hour', $Buffer['Topic'])) {
                     if (!empty($Payload)) {
@@ -259,7 +276,7 @@ eval('declare(strict_types=1);namespace BalboaSpa {?>' . file_get_contents(__DIR
                     }
                 }
                 if (fnmatch('*/filter-cycle2/running', $Buffer['Topic'])) {
-                    $this->SetValue('FilterCycle2Running', $Payload);
+                    $this->SetValue('FilterCycle2Running', boolval($Payload));
                 }
                 if (fnmatch('*/filter-cycle2/enabled', $Buffer['Topic'])) {
                     $this->SetValue('FilterCycle2Enabled', $Payload);
